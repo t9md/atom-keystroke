@@ -10,7 +10,7 @@ Define multi-keysroke as command.
     commands: [
       {
         name: "change-inner-word"
-        keystroke: "c i w"
+        keystroke: "c i w" # using vim-mode or vim-mode-plus keymap
       }
       {
         name: "delete-current-word"
