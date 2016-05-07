@@ -29,4 +29,3 @@ Define multi-keysroke as command.
 'atom-text-editor.vim-mode-plus.normal-mode':
   'C': 'keystroke:change-inner-word'
 ```
-'atom-te:not([mini])':
