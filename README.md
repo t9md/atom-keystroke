@@ -1,10 +1,11 @@
 # keystroke
 
-Define multi-keysroke as command.
+Define command from keystroke.
 
 # example
 
-- `config.cson`
+config.cson
+
 ```coffeescript
 "*":
   "keystroke":
@@ -21,7 +22,8 @@ Define multi-keysroke as command.
     ]
 ```
 
-- `keymap.cson`
+keymap.cson
+
 ```coffeescript
 'atom-text-editor':
   'ctrl-cmd-c': 'keystroke:delete-current-word'
