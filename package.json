@@ -1,7 +1,7 @@
 {
   "name": "keystroke",
   "main": "./lib/main",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "define multi keystroke commands easily ",
   "keywords": [],
   "repository": "https://github.com/t9md/atom-keystroke",
