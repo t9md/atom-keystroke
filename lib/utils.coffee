@@ -24,13 +24,14 @@ keydown = (keystroke, target) ->
   atom.keymaps.handleKeyboardEvent(event)
 
 dispatchKeystroke = (keystrokes) ->
+  editor = atom.workspace.getActiveTextEditor()
   # Without this DUMMY keystroke, first char in keystroke will fail to match.
   # because when first keyboardEvent was fired, invoking key is still not
   # released(keyup) and key lookup is done with invoking key combination.
-  keydown('DUMMY', document.activeElement)
-  keystrokes = normalizeKeystrokes(keystrokes)
-  for keystroke in keystrokes.split(/\s+/)
-    keydown(keystroke, document.activeElement)
+  keydown('DUMMY', null)
+  editor.transact ->
+    for keystroke in normalizeKeystrokes(keystrokes).split(/\s+/)
+      keydown(keystroke, document.activeElement)
 
 module.exports = {
   dispatchKeystroke
