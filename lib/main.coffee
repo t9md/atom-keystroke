@@ -18,9 +18,7 @@ module.exports =
 
   activate: ->
     @subscriptions = new CompositeDisposable
-
-    @subscribe atom.config.observe 'keystroke.commands', (newValue) =>
-      @defineCommands(newValue)
+    @subscriptions.add atom.config.observe 'keystroke.commands', @updateCommands.bind(this)
 
   deactivate: ->
     @commandsDisposable?.dispose()
@@ -28,20 +26,21 @@ module.exports =
 
     {@subscriptions, @commandsDisposable} = {}
 
-  subscribe: (args...) ->
-    @subscriptions.add args...
-
-  defineCommands: (newCommands) ->
+  updateCommands: (newCommands) ->
     @commandsDisposable?.dispose()
     @commandsDisposable = new CompositeDisposable
+    @defineCommands(newCommands)
 
+  defineCommands: (newCommands) ->
     scopeByCommands = {}
 
-    for {name, keystroke, scope} in newCommands
-      do (keystroke, scope) ->
+    for command in newCommands
+      do (command) ->
+        {name, keystroke, scope} = command
         scope ?= 'atom-workspace'
+        commandName = "keystroke:#{name}"
         scopeByCommands[scope] ?= {}
-        scopeByCommands[scope]["keystroke:#{name}"] = -> dispatchKeystroke(keystroke)
+        scopeByCommands[scope][commandName] = -> dispatchKeystroke(keystroke)
 
     for scope, commands of scopeByCommands
       @commandsDisposable.add(atom.commands.add(scope, commands))
