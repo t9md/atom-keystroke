@@ -2,6 +2,8 @@
 
 Keymap from keystroke to keystroke in your `keymap.cson`.
 
+**RULE: Command name must start with `keystroke<space>`**.
+
 ```coffeescript
 'atom-text-editor':
   'ctrl-a': 'keystroke ctrl-e ctrl-p'
@@ -11,7 +13,6 @@ Keymap from keystroke to keystroke in your `keymap.cson`.
   'space k': 'keystroke 5 k'
 ```
 
-**RULE: Command name must start with `keystroke `**.
 
 # What is happening under the hood.
 
@@ -37,7 +38,7 @@ For historical reason, there is two way to register keystroke commands.
   'C': 'keystroke c i w'
 ```
 
-## [Old and manual] manual register via `keystroke.commands`
+## [Old and manual] manual register via `config.cson`
 
 - `config.cson`
 
