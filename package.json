@@ -7,6 +7,25 @@
   "repository": "https://github.com/t9md/atom-keystroke",
   "license": "MIT",
   "engines": {
-    "atom": ">=0.174.0 <2.0.0"
+    "atom": "^1.19.0"
+  },
+  "configSchema": {
+    "autoLoadCommandsFromUserKeymap": {
+      "type": "boolean",
+      "default": true,
+      "dscription": "When `true`, each time user-keymap loaded, automatically define the commands starts with `keymaps:auto:`."
+    },
+    "commands": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "keystroke": {"type": "string"},
+          "scope": {"type": "string"}
+        }
+      }
+    }
   }
 }
