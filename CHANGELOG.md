@@ -1,3 +1,9 @@
+# 0.2.1:
+- Improve: Don't remap recursively when from-keystroke appear in to-keystroke.
+  - e.g. `"j": "keystroke 5 j"`
+    - Old: `j` was recursively remapped(unusable).
+    - New: Original `j`( = next matching in scoped keymap priority) command is used.
+  - For vim user, this is `noremap` equivalent behavior.
 # 0.2.0:
 - New: Observe user's keymap and automatically register necessary commands.
   - User no longer need to define intermediate commands in `config.cson`.
