@@ -10,11 +10,6 @@
     "atom": "^1.19.0"
   },
   "configSchema": {
-    "autoLoadCommandsFromUserKeymap": {
-      "type": "boolean",
-      "default": true,
-      "dscription": "When `true`, each time user-keymap loaded, automatically define the commands starts with `keymaps:auto:`."
-    },
     "commands": {
       "type": "array",
       "default": [],
