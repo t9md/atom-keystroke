@@ -1,7 +1,7 @@
 {
   "name": "keystroke",
   "main": "./lib/main",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "define command from keystroke",
   "keywords": [],
   "repository": "https://github.com/t9md/atom-keystroke",
