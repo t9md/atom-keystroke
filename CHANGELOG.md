@@ -1,3 +1,7 @@
+# 0.3.0:
+- Fix atom-keymap's helper import failure.
+- Use standard lintting and format.
+
 # 0.2.1:
 - Improve: Don't remap recursively when from-keystroke appear in to-keystroke.
   - e.g. `"j": "keystroke 5 j"`
