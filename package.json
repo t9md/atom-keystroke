@@ -28,5 +28,23 @@
         }
       }
     }
+  },
+  "scripts": {
+    "lint": "standard lib/*.js spec/*.js"
+  },
+  "standard": {
+    "globals": [
+      "atom",
+      "describe",
+      "jasmine",
+      "expect"
+    ],
+    "ignore": [
+      "spec/fixtures/*"
+    ]
+  },
+  "devDependencies": {
+    "prettier": "^1.11.1",
+    "standard": "^11.0.1"
   }
 }
