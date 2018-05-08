@@ -67,3 +67,48 @@ For historical reason, there is two way to register keystroke commands.
 'atom-text-editor.vim-mode-plus.normal-mode':
   'C': 'keystroke:change-inner-word'
 ```
+
+# [experimental] Service
+
+Currently just provide `buildCommandSpecsFromKeyBindings` function only.  
+Which can be used to process keymap file bundled in your developing package.  
+
+I'll example with `example-pkg` package which bundle it's own keymap in `keymaps/example-pkg.cson` file.
+
+You have to do TWO things.
+
+1. Subscribe to keystroke's service by adding info in your `package.json`.  
+2. Add `consumeKeystroke` function in your package's main file.  
+
+
+- package.json: `consumeKeystorke` of your pkg's main file is called when keystorke pkg become available
+
+```json
+  "consumedServices": {
+    "keystroke": {
+      "versions": {
+        "^1.0.0": "consumeKeystroke"
+      }
+    },
+  },
+```
+
+- Pkg's main file: Register keystorke commands from your pkg bundled keymap file.
+
+```javascript
+  activate() {
+    this.keystrokeCommands = new CompositeDisposable()
+  },
+
+  deactivate() {
+    this.keystrokeCommands.dispose()
+  },
+
+  consumeKeystroke(service) {
+    // get it's own keymap filePaths
+    const filePaths = atom.packages.getLoadedPackage("example-pkg").getKeymapPaths()
+    for (const filePath of filePaths) {
+      this.keystrokeCommands.add(service.registerKeystrokeCommandsFromFile(filePath))
+    }
+  },
+```
