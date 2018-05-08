@@ -9,6 +9,14 @@
   "engines": {
     "atom": "^1.19.0"
   },
+  "providedServices": {
+    "keystroke": {
+      "description": "keystroke",
+      "versions": {
+        "1.0.0": "provideKeystroke"
+      }
+    }
+  },
   "configSchema": {
     "commands": {
       "type": "array",
