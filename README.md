@@ -73,7 +73,7 @@ For historical reason, there is two way to register keystroke commands.
 Currently just provide `buildCommandSpecsFromKeyBindings` function only.  
 Which can be used to process keymap file bundled in your developing package.  
 
-I'll example with `example-pkg` package which bundle it's own keymap in `keymaps/example-pkg.cson` file.
+I'll explain with `example-pkg` package which bundles it's own keymap in `keymaps/example-pkg.cson` file.
 
 You have to do TWO things.
 
@@ -93,7 +93,7 @@ You have to do TWO things.
   },
 ```
 
-- Pkg's main file: Register keystorke commands from your pkg bundled keymap file.
+- Pkg's main file: Register keystroke commands from keymap file bundled in your pkg
 
 ```javascript
   activate() {
