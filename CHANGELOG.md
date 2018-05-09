@@ -1,3 +1,6 @@
+# 0.4.0:
+- Provide `buildCommandSpecsFromKeyBindings` as service so that external package can use `keystroke: x y z` target in their own keymapfile. 
+
 # 0.3.0:
 - Fix atom-keymap's helper import failure.
 - Use standard lintting and format.
