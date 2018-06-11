@@ -19,7 +19,7 @@ Keymap from keystroke to keystroke in your `keymap.cson`.
 - When `keymap.cson` was loaded, collect `keystroke ` prefixed commands from loaded keymaps.
 - Register these commands automatically.
 
-# Two way to reigster keystroke command
+# Two way to register keystroke command
 
 For historical reason, there is two way to register keystroke commands.
 
